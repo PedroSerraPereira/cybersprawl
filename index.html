@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <!-- SEO Meta Tags -->
+    <title>Cybersprawl</title>
+    <meta name="description" content="Cybersprawl is a digital tridimensional hub for creation and collaboration. Build your own world, contribute to others, and explore a user-driven space.">
+    <meta name="keywords" content="Cybersprawl, 3D, collaboration, digital worlds, creativity, voxels, ThreeJS, GLSL, online hub">
+    <meta name="author" content="Pedro Serra Pereira">
+
+    <!-- Open Graph / Social Sharing -->
+    <meta property="og:title" content="Cybersprawl">
+    <meta property="og:description" content="Create, collaborate, and explore in a digital 3D hub. Build your world and contribute to others!">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://yourdomain.xyz/"> <!-- Replace with your actual domain -->
+    <meta property="og:image" content="https://yourdomain.xyz/img/social-preview.png"> <!-- Replace with your actual image -->
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Cybersprawl">
+    <meta name="twitter:description" content="Create, collaborate, and explore in a digital 3D hub. Build your world and contribute to others!">
+    <meta name="twitter:image" content="https://yourdomain.xyz/img/social-preview.png"> <!-- Replace with your actual image -->
+
+    <!-- Favicon -->
+    <link rel="icon" href="./assets/icone-d9ed195c.svg" type="image/x-icon">
+
+    <!-- Theme Color for Mobile -->
+    <meta name="theme-color" content="#7678ED">
+    
+  <script type="module" crossorigin src="./assets/index-d26cdaf2.js"></script>
+  <link rel="stylesheet" href="./assets/index-176b9b2e.css">
+</head>
+<body>
+    <!-- Add this block above your canvas -->
+<div id="signUpBackground"></div>
+<div id="usernameOverlay">
+  <form id="usernameForm">
+    <label for="usernameInput" id="projectTitleForm"><img src="./assets/logo-d003a68b.png" alt="cybersprawl Logo"></label>
+    <label for="usernameInput" id="usernameLabel">Enter your username:</label>
+    <input id="usernameInput" type="text" autocomplete="off" min="1" maxlength="16">
+    <button type="submit" id="usernameSubmit">Enter</button>
+    <label id="dataWarning">Only your username and creations are stored</label>
+  </form>
+</div>
+<!-- <div id="usernameOverlay" style="position:fixed;top:0;left:0;width:100vw;height:100vh;background:#111c;display:flex;align-items:center;justify-content:center;z-index:1000;">
+  <form id="usernameForm" style="background:#222;padding:32px 24px;border-radius:12px;box-shadow:0 4px 24px #000a;display:flex;flex-direction:column;gap:16px;">
+    <label for="usernameInput" style="color:#fff;font-size:18px;">Enter your username:</label>
+    <input id="usernameInput" type="text" autocomplete="off" style="padding:8px 12px;font-size:16px;border-radius:6px;border:1px solid #888;">
+    <button type="submit" style="padding:8px 12px;font-size:16px;border-radius:6px;background:#ff9800;color:#fff;border:none;cursor:pointer;">Start</button>
+  </form>
+</div> -->
+
+    <canvas class="webgl"></canvas>
+
+    <!-- tutorial -->
+     <div id="tutorialOverlay" >
+  <div id="tutorialTooltip">
+    <!-- Tutorial text goes here -->
+    <div id="tutorialText"></div>
+    <div id="tutorialButtonsContainer">
+      <button id="tutorialSkip">Skip Tutorial</button>
+      <button id="tutorialNext">Next</button>
+    </div>
+  </div>
+</div>
+
+<button id="openColorPickerBtn" class="mobileColorBtn" aria-label="Open color picker">
+</button>
+
+    <div id="colorContainer">
+      <div id="colorContainerFlex">
+      <button id="closeColorPickerBtn" class="closeColorBtn" aria-label="Close color picker">x</button>
+  <div id="picker"></div>
+  <div id="swatchesAndPickerContainer">
+      <p>Recent colors</p>
+    <div id="recentSwatchesContainer">
+
+      <div id="recentSwatches"></div>
+      </div>
+     <button id="colorPickFromCube" style="margin-top:8px;"><img src="./assets/eyedropper-8574ef4a.png" alt="eye dropper icon"></button>
+  </div>
+</div>
+</div>
+    
+    <div class="secondaryButtons" id="enterPersonalWorld">Go to your world</div>
+
+    <div id="cubeCounterMobile">Your contributions: 0/10</div>
+
+    
+    <div id="worldSender-goToHubHolder">  
+           
+    <div id="createButton-CounterHolder">
+      <div id="cubeCounter">Your contributions: 0/10</div>
+        <div id="createConfirmBox">
+  <div class="confirm-content">
+    Are you sure?
+    <div class="confirm-contentText">After clicking save, all additions are permanent and cannot be deleted</div>
+    <button id="confirmYes">Yes</button>
+    <button id="confirmNo">No</button>
+  </div>
+  <div class="confirm-arrow"></div>
+</div>
+ <div id="cubePlusOne">+1</div> 
+      
+      <div class="primaryButtons" id="worldSender"><div class="buttonHeader">Save!</div>
+    </div>
+  </div>
+   <div  class="secondaryButtons" id="leavePersonalWorld">Go to the hub</div>
+   </div>
+
+
+    <div id="contributorsList"></div>
+    <div id="cubeDeleteMode" class="secondaryButtonDeleteMode"><div class="buttonHeader">Cube delete Mode</div> <div class="buttonText">You may remove cubes not yet permanently added</div></div>
+
+<!-- <div id="cubePlusOne">+1</div>
+<div id="contribLimitWarning">Contribution limit reached (10/10)</div> -->
+
+    <div id="loadingOverlay" style="position:fixed;top:0;left:0;width:100vw;height:100vh;
+    background:#111;opacity:0;pointer-events:none;transition:opacity 0.5s;"></div>
+    
+    <!-- <div id="worldTooltip" ></div> -->
+    <div id="worldSavedToast">World Saved!</div>
+
+    <div id="helpIcon">help</div>
+    <!-- <div id="projectIcon">[projectName]</div> -->
+    <div id="projectIcon"><img src="./assets/logo-d003a68b.png" alt="cybersprawl Logo"></div>
+
+    <div id="aboutPage">
+      <div class="pageContent">
+        <div class="pageHeader">
+          <h1>What is this?</h1> 
+          <div></div>
+          <h1 class="closePage">X</h1>
+        </div>
+        <!-- <h2>What is this?</h2> -->
+        <p>Cybersprawl is a digital tridimensional hub for creation and collaboration between users. Each user may have a personal world, where they can create using colored cubes. </p>
+          
+        <p>Each user may also add up to 10 contributions to other worlds, creating a sense of collaboration and.</p>
+
+        <p>This is an continuously evolving space, entirely user created. you can explore other worlds, add your contributions, or just focus on your creation!</p>
+
+        <p>This project explores the theme of escapism inside the digital medium, and reflects the personal space each person has to create, customize, live in and see it increasingly become altered.</p>
+
+        <p>It is the result of a communication design dissertation investigation, culminating in cybersprawl. You can access the dissertation here.</p>
+
+        <p>Thank you for all the usability testers.</p>
+
+        <p>Version Beta 0.6</p>
+
+        <h2>Credits</h2>
+        <p>Design and developed by <a href="https://www.linkedin.com/in/pedro-serra-pereira-31a330174/" target="_blank">Pedro Serra Pereira</a></p>
+        <p>Coded in JavaScript, ThreeJs and GLSL</p>
+        <p>Color Picker: <a href="https://iro.js.org/" target="_blank">iro.js</a></p>
+        <p>Font: Inter</p>
+        <div class="emptySpace"></div>
+    </div>
+   </div>
+
+    <div id="helpPage">
+      <div class="pageContent">
+        <div class="pageHeader">
+          <h1>Help</h1> 
+          <h1 class="closePage">X</h1>
+        </div>
+        <p>Controls and information.</p>
+        <h2>In the Hub</h2>
+        <p>The hub shows all the worlds created</p>
+        <h3>Desktop</h3>
+        <div class="controls">  
+          <div>
+            <p>Drag the camera</p>
+            <div><img src="./assets/desktopPan-11ce2e1d.png" alt="Tutorial for panning the camera inside the hub" loading="lazy"></div>
+          </div>
+          <div>
+            <p>Rotate the camera</p>
+            <div><img src="./assets/desktopRotate2-51e707c5.png" alt="Tutorial for rotating the camera inside the hub" loading="lazy"></div>
+          </div>
+       </div>
+        <h3>Mobile</h3>
+        <div class="controls">  
+          <div>
+            <p>Tap and drag to move the camera</p>
+            <div ><img src="./assets/mobilePan2-7a206a7c.png" alt="Tutorial for panning the camera inside the hub" loading="lazy"></div>
+          </div>
+          <!-- <div>
+            <p>Right click to rotate the camera</p>
+            <div><img src="./img/desktopRotate2.png" alt="Tutorial for rotating the camera inside the hub" loading="lazy"></div>
+          </div> -->
+       </div>
+        
+        <h2>In a World</h2>
+        <h3>Desktop</h3>
+        <div class="controls">  
+          <div>
+            <p>Left click to add a cube</p>
+            <div><img src="./assets/desktopCreateCube3-dcd4d73c.png" alt="Tutorial for adding a cube inside a world" loading="lazy"></div>
+          </div>
+          <div>
+            <p>Use the scroll wheel or pinch the touch pad to zoom</p>
+            <div><img src="./assets/desktopZoomWorld-94be3bdf.png" alt="Tutorial for zooming the camera inside a world" loading="lazy"></div>
+          </div>
+          <div>
+            <p>Right click to rotate the camera</p>
+            <div><img src="./assets/desktopRotate2-51e707c5.png" alt="Tutorial for panning the camera inside a world" loading="lazy"></div>
+          </div>
+        </div>
+         <h3>Mobile</h3>
+        <div class="controls">  
+          <div>
+            <p>Tap on the grid or on a cube to create a cube</p>
+            <div ><img src="./assets/mobileCreateCube4-da494302.png" alt="Tutorial for creating cubes, with mobile" loading="lazy"></div>
+          </div>
+          <div>
+            <p>Pinch in or out to zoom</p>
+            <div><img src="./assets/mobileZoomWorld-f5023284.png" alt="Tutorial for zooming the camera inside a world, with mobile" loading="lazy"></div>
+          </div>
+          <div>
+            <p>Tap and drag ouside the grid area to rotate the camera</p>
+            <div ><img src="./assets/mobileRotateCameraWorld3-47914927.png" alt="Tutorial for rotating the camera inside a world, with mobile" loading="lazy"></div>
+            </div>
+          </div>
+
+        <h2>Collaboration and contributions</h2>
+        <p>When entering another world, you may place up to 10 cubes, instead of the much larger amount on your personal world. You can try to "complete" or change up the other user's world!</p>
+          <!-- <div>
+            <p>Right click to rotate the camera</p>
+            <div><img src="./img/desktopRotate2.png" alt="Tutorial for rotating the camera inside the hub" loading="lazy"></div>
+          </div> -->
+          <div class="emptySpace"></div>
+       </div>
+      </div>
+
+      <div id="hubDesktopControls" >
+        <div class="tutorialControls">  
+          <div>
+            <!-- <p>Drag the camera</p> -->
+            <div><img src="./assets/desktopPan-11ce2e1d.png" alt="Tutorial for panning the camera inside the hub" loading="lazy"></div>
+          </div>
+          <div>
+            <!-- <p>Rotate the camera</p> -->
+            <div><img src="./assets/desktopRotate2-51e707c5.png" alt="Tutorial for rotating the camera inside the hub" loading="lazy"></div>
+          </div>
+      </div>
+      </div>
+
+      <div id="hubMobileControls" >
+        <div class="tutorialControls">  
+            <div>
+            <!-- <p>Tap and drag to move the camera</p> -->
+            <div ><img src="./assets/mobilePan2-7a206a7c.png" alt="Tutorial for panning the camera inside the hub" loading="lazy"></div>
+          </div>
+      </div>
+      </div>
+      
+      <div id="worldDesktopControls" >
+        <div class="tutorialControls">  
+          <div>
+            <!-- <p>Left click to create a cube</p> -->
+            <div><img src="./assets/desktopCreateCube2-709389c0.png" alt="Tutorial for creating cubes inside the world" loading="lazy"></div>
+          </div>
+           <div>
+            <!-- <p>Zoom in and out using the scroll wheel or touchpad</p> -->
+            <div><img src="./assets/desktopZoomWorld-94be3bdf.png" alt="Tutorial for zooming the camera inside a world" loading="lazy"></div>
+          </div>
+          <div>
+          <div>
+            <!-- <p>Right click to rotate the camera</p> -->
+            <div><img src="./assets/desktopRotate2-51e707c5.png" alt="Tutorial for rotating the camera inside a world" loading="lazy"></div>
+          </div>
+       </div>
+      </div>
+      </div>
+
+      <div id="worldMobileControls" >
+        <div class="tutorialControls">  
+          <div>
+            <!-- <p>Tap on the grid or on a cube to create a cube</p> -->
+            <div><img src="./assets/mobileCreateCube4-da494302.png" alt="Tutorial for creating cubes inside the world" loading="lazy"></div>
+          </div>
+          <div>
+            <!-- <p>Tap and drag ouside the creation area to rotate the camera</p> -->
+            <div><img src="./assets/mobileRotateCameraWorld3-47914927.png" alt="Tutorial for rotating the camera inside the hub" loading="lazy"></div>
+          </div>
+       </div>
+      </div>
+
+</body>
+   
+</html>
