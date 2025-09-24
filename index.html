@@ -5,22 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
      <!-- SEO Meta Tags -->
     <title>Cybersprawl</title>
-    <meta name="description" content="Cybersprawl is a digital tridimensional hub for creation and collaboration. Build your own world, contribute to others, and explore a user-driven space.">
-    <meta name="keywords" content="Cybersprawl, 3D, collaboration, digital worlds, creativity, voxels, ThreeJS, GLSL, online hub">
+    <meta name="description" content="Cybersprawl is a digital tridimensional hub for creation and collaboration. Build your own world, contribute to others, and explore a persistent digital world.">
+    <meta name="keywords" content="Cybersprawl, 3D, co-creation, collaboration, digital worlds, digital space, voxels, ThreeJS, Communication Design">
     <meta name="author" content="Pedro Serra Pereira">
 
     <!-- Open Graph / Social Sharing -->
     <meta property="og:title" content="Cybersprawl">
-    <meta property="og:description" content="Create, collaborate, and explore in a digital 3D hub. Build your world and contribute to others!">
+    <meta property="og:description" content="Cybersprawl is a digital tridimensional hub for creation and collaboration. Build your own world, contribute to others, and explore a persistent digital world.">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://yourdomain.xyz/"> <!-- Replace with your actual domain -->
-    <meta property="og:image" content="https://yourdomain.xyz/img/social-preview.png"> <!-- Replace with your actual image -->
+    <meta property="og:url" content="https://cyber-sprawl.com/"> 
+    <meta property="og:image" content="https://github.com/PedroSerraPereira/cybersprawl/blob/main/websiteCoverHighQTextless.jpgg">
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Cybersprawl">
-    <meta name="twitter:description" content="Create, collaborate, and explore in a digital 3D hub. Build your world and contribute to others!">
-    <meta name="twitter:image" content="https://yourdomain.xyz/img/social-preview.png"> <!-- Replace with your actual image -->
+    <meta name="twitter:description" content="Cybersprawl is a digital tridimensional hub for creation and collaboration. Build your own world, contribute to others, and explore a persistent digital world.">
+    <meta name="twitter:image" content="https://github.com/PedroSerraPereira/cybersprawl/blob/main/websiteCoverHighQTextless.jpg">
 
     <!-- Favicon -->
     <link rel="icon" href="./assets/icone-d9ed195c.svg" type="image/x-icon">
@@ -28,8 +28,8 @@
     <!-- Theme Color for Mobile -->
     <meta name="theme-color" content="#7678ED">
     
-  <script type="module" crossorigin src="./assets/index-dfb0fb21.js"></script>
-  <link rel="stylesheet" href="./assets/index-15503462.css">
+  <script type="module" crossorigin src="./assets/index-9da2bbdc.js"></script>
+  <link rel="stylesheet" href="./assets/index-b899bcca.css">
 </head>
 <body>
     <!-- Add this block above your canvas -->
@@ -43,13 +43,6 @@
     <label id="dataWarning">Only your username and creations are stored</label>
   </form>
 </div>
-<!-- <div id="usernameOverlay" style="position:fixed;top:0;left:0;width:100vw;height:100vh;background:#111c;display:flex;align-items:center;justify-content:center;z-index:1000;">
-  <form id="usernameForm" style="background:#222;padding:32px 24px;border-radius:12px;box-shadow:0 4px 24px #000a;display:flex;flex-direction:column;gap:16px;">
-    <label for="usernameInput" style="color:#fff;font-size:18px;">Enter your username:</label>
-    <input id="usernameInput" type="text" autocomplete="off" style="padding:8px 12px;font-size:16px;border-radius:6px;border:1px solid #888;">
-    <button type="submit" style="padding:8px 12px;font-size:16px;border-radius:6px;background:#ff9800;color:#fff;border:none;cursor:pointer;">Start</button>
-  </form>
-</div> -->
 
     <canvas class="webgl"></canvas>
 
@@ -113,9 +106,6 @@
     <div id="contributorsList"></div>
     <div id="cubeDeleteMode" class="secondaryButtonDeleteMode"><div class="buttonHeader">Cube delete Mode</div> <div class="buttonText">You may remove cubes not yet permanently added</div></div>
 
-<!-- <div id="cubePlusOne">+1</div>
-<div id="contribLimitWarning">Contribution limit reached (10/10)</div> -->
-
     <div id="loadingOverlay" style="position:fixed;top:0;left:0;width:100vw;height:100vh;
     background:#111;opacity:0;pointer-events:none;transition:opacity 0.5s;"></div>
     
@@ -133,24 +123,19 @@
           <div></div>
           <h1 class="closePage">X</h1>
         </div>
-        <!-- <h2>What is this?</h2> -->
-        <p>Cybersprawl is a digital tridimensional hub for creation and collaboration between users. Each user may have a personal world, where they can create using colored cubes. </p>
-          
-        <p>Each user may also add up to 10 contributions to other worlds, creating a sense of collaboration and.</p>
+        <p>Cybersprawl is an online digital 3D space for creation and collaboration between users. Each user may have their personal world, using colored cubes to create and fill that world. </p>    
 
-        <p>This is an continuously evolving space, entirely user created. you can explore other worlds, add your contributions, or just focus on your creation!</p>
+        <p>This is an continuously evolving space, entirely user created. You can explore other worlds, add your contributions to those worlds, or just focus on your creations!</p>
 
-        <p>This project explores the theme of escapism inside the digital medium, and reflects the personal space each person has to create, customize, live in and see it increasingly become altered.</p>
+        <p>This project explores the theme of escapism inside the digital medium, and reflects the personal space each person has to create, customize, live in and see it become increasingly altered. It is the result of a Communication's Design dissertation, culminating in Cybersprawl.</p>
 
-        <p>It is the result of a communication design dissertation investigation, culminating in cybersprawl. You can access the dissertation here.</p>
+        <p>A big thank you for all the usability testers and everyone who supported the conception of Cybersprawl. I also appreciate all the participants and I'm eager to see all your creations.</p>
 
-        <p>Thank you for all the usability testers.</p>
-
-        <p>Version Beta 0.9</p>
+        <p>Version Release 1.0 | September 2025</p>
 
         <h2>Credits</h2>
         <p>Design and developed by <a href="https://www.linkedin.com/in/pedro-serra-pereira-31a330174/" target="_blank">Pedro Serra Pereira</a></p>
-        <p>Coded in JavaScript, ThreeJs and GLSL</p>
+        <p>Coded in HTML/CSS, JavaScript, ThreeJs (with GSAP) and GLSL.</p>
         <p>Color Picker: <a href="https://iro.js.org/" target="_blank">iro.js</a></p>
         <p>Font: Inter</p>
         <div class="emptySpace"></div>
@@ -222,7 +207,7 @@
           </div>
 
         <h2>Collaboration and contributions</h2>
-        <p>When entering another world, you may place up to 10 cubes, instead of the much larger amount on your personal world. You can try to "complete" or change up the other user's world!</p>
+        <p>When entering another world, you may place up to 10 cubes. You can try to "complete" or change up the other user's world!</p>
           <!-- <div>
             <p>Right click to rotate the camera</p>
             <div><img src="./img/desktopRotate2.png" alt="Tutorial for rotating the camera inside the hub" loading="lazy"></div>
